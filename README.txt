@@ -1,20 +1,14 @@
-Suppose you've got these files:
+I have made a QTreeView to display a very large and continuous data set. Since the data set is continuous, I delete initial rows when the total number of rows is greater than a specified amount.
 
-    .
-    |-  basicdrawing.qrc
-    |-  images/
-    |      |-  qt-logo.png
-            -  brick.png
-    |-  renderarea.cpp
-    |-  renderarea.h
-    |-  window.cpp
-    |-  window.h
+I have used a custom model for this purpose
 
-You can run `qmake -project` to generate a *.pro file, 
-then use qtcreator to open this project.
+The whole system is working correctly and displaying data.
 
-Or use this CMakeLists.txt to build a Makefile or Visual Studio project.
-Especially good for these lazy people.
+But I want it to autoscroll to the bottom to display latest data. If i use scrollToBottom at row addition it completely slows down the entire view-model. But If i use m_pTreeView->setAutoScroll at the start, it has not effect.
 
---------------------------------
-(Code copied from Qt4 examples.)
+Moreover if i click on the view, it completely slows down.
+
+I am using Qt 4.7.1
+
+How should I auto scroll to the bottom without compromising on performance?
+And show I remove the lag/drastic performance hit when I click on the view?
